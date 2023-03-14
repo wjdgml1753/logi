@@ -1,0 +1,52 @@
+1
+mkdir -p aa/bb/cc
+
+2
+touch aa/bb/cc/cc.txt
+
+3
+cd aa/bb
+cp cc/cc.txt /home/ubuntu/aa1.txt
+cp cc/cc.txt /home/ubuntu/aa2.txt
+cp cc/cc.txt /home/ubuntu/aa3.txt
+
+4
+cd
+cp aa?.txt aa/bb
+
+5
+mv aa/bb/aa2.txt aa/aa.txt
+mv aa/bb/aa1.txt aa/bb/aa.txt
+
+6
+su
+111111
+adduser mango
+usermod -G ubuntu mango
+
+7
+cd /home/mango
+mkdir abc
+vi abc/my.sh
+(pwd)
+
+chown mango aaa
+chgrp mango aaa
+chown mango aaa/my.sh
+chgrp mango aaa/my.sh
+chmod 755 abc/my.sh
+
+8
+su mango
+cp abc/my.sh ./
+./my.sh
+abc/my.sh
+
+9
+su ubuntu
+cd
+tar cfvz aa.tar.gz aa?.txt
+tar Cxfvz aa aa.tar.gz
+
+11
+find ~ -name "aa*" -exec ls -al {} \;

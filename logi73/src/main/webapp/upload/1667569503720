@@ -1,0 +1,37 @@
+1. 스프링프레임워크 초기화과정  Java Naming Directory Interface
+public class DispatcherServlet
+ init(ServletConfig obj){
+                 obj.getInitParameter("contextConfigLocation")
+  String[] config = "/WEB-INF/servlet/servlet-main.xml,
+         /WEB-INF/servlet/servlet-main2.xml"
+  ApplicationContext  applicationContext 
+        = new ApplicationContext(String config[]);
+          .getBean(''name");
+
+}
+                                    
+            A a = new A();
+2. 클라이언트의 요청처리과정
+         *.do                  Front Controller -- 클라이언트의 모든 요청에 대한 중앙 집중적인 접근지점을 제공
+    /chap04/greeting/hello.htm
+c1 ------------------>   DispatcherServlet
+                                process(req,res){
+                                  Controller controller =
+                                         SimpleUrlHandlerMapping
+                                          .getController(url);
+                                  ModelAndView  modelAndView
+                                  = controller.handleRequest(req,res);
+                                 if modelAndView = null  return;
+                                   String viewUrl = InternalResourceViewResolver
+                                   .resolveView(modelAndView);
+                               }
+
+Controller 
+AbstractController  handleRequest(HttpServletRequest req,
+			HttpServletResponse res)
+HelloController    handleRequestInternal(HttpServletRequest request,
+			HttpServletResponse response)
+
+
+
+ServletContext 경로
